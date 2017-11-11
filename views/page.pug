@@ -1,0 +1,11 @@
+//- Create template views/page.pug
+extends ./layout.pug
+//- Create a block
+block body
+       div(data-wio-id=pageContent.id)
+               img(src=pageContent.data.hero.url, height=300)
+               // Why is this an array?
+               h1 #{pageContent.data.headline[0].text}
+               h2 #{pageContent.data.subheading[0].text}
+
+               != PrismicDOM.RichText.asHtml(pageContent.data.content, ctx.linkResolver)
